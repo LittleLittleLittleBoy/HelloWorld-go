@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-go
+spec:
+  selector:
+    matchLabels:
+      app: helloworld-go
+  template:
+    metadata:
+      labels:
+        app: helloworld-go
+    spec:
+      containers:
+      - name: helloworld-go
+        image: candleflame/helloworld-go:v0.1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
